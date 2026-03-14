@@ -139,34 +139,7 @@ CSV 导出逻辑见 [`saveResults()`](main.go:266)。
 - 这是一个测速工具，不保证目标 IP 一定适合生产环境长期使用
 - 若目标站点有强校验、WAF、限速或地域限制，测速结果可能受影响
 
-## 适合发布到 GitHub 前的整理建议
-
-推荐仓库展示名称：
-
-- `CDN IP Latency Tester`
-
-推荐仓库描述：
-
-- `A Go CLI tool for testing and ranking candidate CDN/edge IPs by HTTP latency while preserving Host and TLS SNI.`
-
-推荐 GitHub Topics：
-
-- `go`
-- `latency-test`
-- `cdn`
-- `ipv6`
-- `network-tools`
-- `http-client`
-
-## 后续可扩展方向
-
-- 增加命令行参数支持，例如 `-f`、`-u`、`-c`、`-timeout`
-- 支持输出 JSON / TXT 结果
-- 支持按成功率过滤
-- 支持自定义 HTTP 方法与请求头
-- 支持自动写回最快 IP 列表
-- 支持地区、ASN、运营商信息补充
 
 ## License
 
-如果你准备公开发布，建议后续补充一个开源许可证文件，例如 MIT License。
+
