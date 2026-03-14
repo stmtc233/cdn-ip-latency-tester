@@ -4,20 +4,20 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: Release tag (example: v1.0.0)
+        description: "Release tag (example: v1.0.0)"
         required: true
         type: string
       release_name:
-        description: Release name
+        description: "Release name"
         required: true
         type: string
       release_notes:
-        description: Release notes
+        description: "Release notes"
         required: false
-        default: Manual release build
+        default: "Manual release build"
         type: string
       prerelease:
-        description: Mark as prerelease
+        description: "Mark as prerelease"
         required: true
         default: false
         type: boolean
@@ -53,11 +53,11 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
-          go-version-file: go.mod
+          go-version-file: 'go.mod' # 确保你的项目根目录有 go.mod 并且包含 go 1.xx 的声明
 
       - name: Build binary
         env:
-          CGO_ENABLED: 0
+          CGO_ENABLED: '0'  # 必须是字符串
           GOOS: ${{ matrix.goos }}
           GOARCH: ${{ matrix.goarch }}
         run: go build -trimpath -ldflags "-s -w" -o "dist/${{ matrix.binary_name }}" .
@@ -84,6 +84,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p publish
+          # 提取 V4 架构下分散在各个目录中的构件
           find release-assets -type f -exec cp {} publish/ \;
           ls -la publish
 
