@@ -1,0 +1,16 @@
+# Build artifacts
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+iptest
+
+# Test artifacts / outputs
+result.csv
+
+# IDE / OS files
+.DS_Store
+Thumbs.db
+.vscode/
+by.bat
